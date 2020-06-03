@@ -19,6 +19,8 @@ int main()
     cout << "Content of the address pointer pc holds (*pc): " << *pc << endl
          << endl;
 
+
+
     *pc = 2;
     cout << "Address of c (&c): " << &c << endl;
     cout << "Value of c (c): " << c << endl
