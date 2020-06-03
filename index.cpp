@@ -1,32 +1,36 @@
 #include <iostream>
-
 using namespace std;
 
-void display(char *);
-void display(string);
+struct Distance
+{
+    int feet;
+    float inch;
+};
 
 int main()
 {
-    string str1;
-    char str[100];
+    Distance *ptr, d;
 
-    cout << "Enter a string: ";
-    getline(cin, str1);
+    ptr = &d;
 
-    cout << "Enter another string: ";
-    cin.get(str, 100, '\n');
+    cout << "Enter feet: ";
+    cin >> (*ptr).feet;
+    cout << "Enter inch: ";
+    cin >> (*ptr).inch;
 
-    display(str1);
-    display(str);
+    cout << "Displaying information." << endl;
+    // cout << "Distance = " << (*ptr).feet << " feet " << (*ptr).inch << " inches";
+    cout << ptr->feet << endl;
+    cout << ptr->inch << endl;
+    // (*ptr).inch && ptr->inch are same
+    enum fruits
+    {
+        apple,
+        banana,
+        orange
+    };
+    fruits basket = orange;
+    cout << basket << endl;
+
     return 0;
-}
-
-void display(char s[])
-{
-    cout << "Entered char array is: " << s << endl;
-}
-
-void display(string s)
-{
-    cout << "Entered string is: " << s << endl;
 }
