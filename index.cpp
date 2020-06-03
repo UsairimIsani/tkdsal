@@ -1,43 +1,28 @@
 #include <iostream>
 using namespace std;
-
-class Test
-{
-private:
-    bool huz = false;
-    string chi = "Chicken ";
-
-public:
-    Test() : huz(true), chi("CHAMBELI")
-    {
-        cout << huz << "  " << chi << endl;
-    }
-    int cham(int a)
-    {
-        return a;
-    };
-    void operator!()
-    {
-        huz = !huz;
-        chi = "ZARB ABD";
-    };
-    bool get_huz()
-    {
-        return huz;
-    }
-    string get_chi()
-    {
-        return chi;
-    }
-};
 int main()
 {
-    Test ak;
-    !ak;
-    bool huz = ak.get_huz();
-    cout << ak.cham(56) << endl;
-    cout << ak.get_huz() << endl;
-    cout << ak.get_chi() << endl;
-    !ak;
-    cout << ak.get_huz() << endl;
+    int *pc, c;
+
+    c = 5;
+    cout << "Address of c (&c): " << &c << endl;
+    cout << "Value of c (c): " << c << endl
+         << endl;
+
+    pc = &c; // Pointer pc holds the memory address of variable c
+    cout << "Address that pointer pc holds (pc): " << pc << endl;
+    cout << "Content of the address pointer pc holds (*pc): " << *pc << endl
+         << endl;
+
+    c = 11; // The content inside memory address &c is changed from 5 to 11.
+    cout << "Address pointer pc holds (pc): " << pc << endl;
+    cout << "Content of the address pointer pc holds (*pc): " << *pc << endl
+         << endl;
+
+    *pc = 2;
+    cout << "Address of c (&c): " << &c << endl;
+    cout << "Value of c (c): " << c << endl
+         << endl;
+
+    return 0;
 }
