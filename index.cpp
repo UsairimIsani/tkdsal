@@ -1,36 +1,43 @@
 #include <iostream>
 using namespace std;
 
-struct Distance
+class Test
 {
-    int feet;
-    float inch;
-};
+private:
+    bool huz = false;
+    string chi = "Chicken ";
 
+public:
+    Test() : huz(true), chi("CHAMBELI")
+    {
+        cout << huz << "  " << chi << endl;
+    }
+    int cham(int a)
+    {
+        return a;
+    };
+    void operator!()
+    {
+        huz = !huz;
+        chi = "ZARB ABD";
+    };
+    bool get_huz()
+    {
+        return huz;
+    }
+    string get_chi()
+    {
+        return chi;
+    }
+};
 int main()
 {
-    Distance *ptr, d;
-
-    ptr = &d;
-
-    cout << "Enter feet: ";
-    cin >> (*ptr).feet;
-    cout << "Enter inch: ";
-    cin >> (*ptr).inch;
-
-    cout << "Displaying information." << endl;
-    // cout << "Distance = " << (*ptr).feet << " feet " << (*ptr).inch << " inches";
-    cout << ptr->feet << endl;
-    cout << ptr->inch << endl;
-    // (*ptr).inch && ptr->inch are same
-    enum fruits
-    {
-        apple,
-        banana,
-        orange
-    };
-    fruits basket = orange;
-    cout << basket << endl;
-
-    return 0;
+    Test ak;
+    !ak;
+    bool huz = ak.get_huz();
+    cout << ak.cham(56) << endl;
+    cout << ak.get_huz() << endl;
+    cout << ak.get_chi() << endl;
+    !ak;
+    cout << ak.get_huz() << endl;
 }
