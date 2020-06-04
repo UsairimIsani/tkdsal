@@ -1,28 +1,32 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
-
-// Function prototype
-void swap(int *, int *);
 
 int main()
 {
-    int a = 1, b = 2;
-    cout << "Before swapping" << endl;
-    cout << "a = " << a << endl;
-    cout << "b = " << b << endl;
+    int num;
+    cout << "Enter total number of students: ";
+    cin >> num;
+    float *ptr;
 
-    swap(&a, &b);
+    // memory allocation of num number of floats
+    ptr = new float[num];
 
-    cout << "\nAfter swapping" << endl;
-    cout << "a = " << a << endl;
-    cout << "b = " << b << endl;
+    cout << "Enter GPA of students." << endl;
+    for (int i = 0; i < num; ++i)
+    {
+        cout << "Student" << i + 1 << ": ";
+        cin >> *(ptr + i);
+    }
+
+    cout << "\nDisplaying GPA of students." << endl;
+    for (int i = 0; i < num; ++i)
+    {
+        cout << "Student" << i + 1 << " :" << *(ptr + i) << endl;
+    }
+
+    // ptr memory is released
+    delete[] ptr;
+
     return 0;
-}
-
-void swap(int *n1, int *n2)
-{
-    int temp;
-    temp = *n1;
-    *n1 = *n2;
-    *n2 = temp;
 }
