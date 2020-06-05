@@ -23,7 +23,15 @@ public:
 class MathsTeacher : public Person
 {
 public:
-    void teachMaths() { cout << "I can teach Maths." << endl; }
+    MathsTeacher()
+    {
+        cout << "Hello" << endl;
+    }
+    void teachMaths()
+    {
+        cout << "I can teach Maths." << endl;
+        Person::profession = "Teacher Pande";
+    }
 };
 
 // Footballer class is derived from base class Person.
@@ -36,10 +44,10 @@ public:
 int main()
 {
     MathsTeacher teacher;
-    teacher.profession = "Teacher";
+    // teacher.profession = "Teacher";
     teacher.age = 23;
-    teacher.display();
     teacher.teachMaths();
+    teacher.display();
 
     Footballer footballer;
     footballer.profession = "Footballer";
