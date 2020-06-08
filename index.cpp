@@ -1,59 +1,28 @@
 #include <iostream>
 using namespace std;
 
-class Person
+class Distance
 {
-public:
-    string profession;
-    int age;
+private:
+    int meter;
 
-    Person() : profession("unemployed"), age(16) {}
-    void display()
-    {
-        cout << "My profession is: " << profession << endl;
-        cout << "My age is: " << age << endl;
-        walk();
-        talk();
-    }
-    void walk() { cout << "I can walk." << endl; }
-    void talk() { cout << "I can talk." << endl; }
+public:
+    Distance() : meter(0) {}
+    //friend function
+    friend int addFive(Distance);
 };
 
-// MathsTeacher class is derived from base class Person.
-class MathsTeacher : public Person
+// friend function definition
+int addFive(Distance d)
 {
-public:
-    MathsTeacher()
-    {
-        cout << "Hello" << endl;
-    }
-    void teachMaths()
-    {
-        cout << "I can teach Maths." << endl;
-        Person::profession = "Teacher Pande";
-    }
-};
-
-// Footballer class is derived from base class Person.
-class Footballer : public Person
-{
-public:
-    void playFootball() { cout << "I can play Football." << endl; }
-};
+    //accessing private data from non-member function
+    d.meter += 5;
+    return d.meter;
+}
 
 int main()
 {
-    MathsTeacher teacher;
-    // teacher.profession = "Teacher";
-    teacher.age = 23;
-    teacher.teachMaths();
-    teacher.display();
-
-    Footballer footballer;
-    footballer.profession = "Footballer";
-    footballer.age = 19;
-    footballer.display();
-    footballer.playFootball();
-
+    Distance D;
+    cout << "Distance: " << addFive(D);
     return 0;
 }
