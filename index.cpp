@@ -6,7 +6,7 @@ class Fastfood
 
 public:
     int price = 0;
-    virtual int getPrice()
+    int getPrice()
     {
         return this->price;
     };
@@ -17,9 +17,8 @@ class Burger : public Fastfood
 public:
     int price = 1;
 
-    int getPrice() override
+    int getPrice()
     {
-        this->FastFood::getPrice();
         return this->price;
     };
 };
@@ -27,8 +26,14 @@ int main()
 {
     Fastfood *f = new Fastfood();
     Fastfood g;
+    Burger b;
+    Burger *d = new Burger;
     cout << g.getPrice()
          << endl;
     cout << f->getPrice()
+         << endl;
+    cout << b.getPrice()
+         << endl;
+    cout << d->getPrice()
          << endl;
 }
