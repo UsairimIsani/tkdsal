@@ -1,40 +1,34 @@
 #include <iostream>
 using namespace std;
 // int plus_chicken(Some_Class a);
-class Distance
+class Fastfood
 {
-private:
-    int meter;
 
 public:
-    Distance() : meter(0) {}
-    //friend function
-    friend int addFive(Distance);
+    int price = 0;
+    virtual int getPrice()
+    {
+        return this->price;
+    };
 };
 
-// friend function definition
-int addFive(Distance d)
+class Burger : public Fastfood
 {
-    //accessing private data from non-member function
-    d.meter += 5;
-    return d.meter;
-}
+public:
+    int price = 1;
 
+    int getPrice() override
+    {
+        this->FastFood::getPrice();
+        return this->price;
+    };
+};
 int main()
 {
-    Distance D;
-    cout << "Distance: " << addFive(D);
-    Some_Class b;
-    plus_chicken(b);
-    return 0;
-}
-
-class Some_Class
-{
-public:
-    int us = 3;
-};
-int plus_chicken(Some_Class a)
-{
-    return a.us;
+    Fastfood *f = new Fastfood();
+    Fastfood g;
+    cout << g.getPrice()
+         << endl;
+    cout << f->getPrice()
+         << endl;
 }
