@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// int plus_chicken(Some_Class a);
 class Distance
 {
 private:
@@ -24,5 +24,17 @@ int main()
 {
     Distance D;
     cout << "Distance: " << addFive(D);
+    Some_Class b;
+    plus_chicken(b);
     return 0;
+}
+
+class Some_Class
+{
+public:
+    int us = 3;
+};
+int plus_chicken(Some_Class a)
+{
+    return a.us;
 }
